@@ -1,0 +1,57 @@
+.welcome {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.login-form {
+    margin-top: 50px;
+    padding: 50px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gainsboro;
+}
+
+.login-form input[type] {
+    border-radius: 5px;
+    border: 1px solid rgb(95, 95, 85);
+    margin-bottom: 5px;
+}
+
+#second-part {
+    margin-top: 50px;
+}
+
+.deposit {
+    margin-left: 50px;
+    border-radius: 10px;
+    margin-right: 100px;
+    color: white;
+    padding: 10px;
+    background-color: rgb(89, 89, 236)
+}
+
+.withdraw {
+    border-radius: 10px;
+    margin-right: 100px;
+    color: white;
+    background-color: lightsalmon;
+    padding: 10px;
+}
+
+.balance {
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    background-color: rgb(231, 198, 6);
+}
+
+.col-md-5 {
+    padding: 30px;
+    margin: 100px 15px 150px 30px;
+    box-shadow: 0 0 10px;
+    border-radius: 10px;
+}
+
+#withdraw-section {
+    margin-left: 100px;
+}
