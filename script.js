@@ -8,34 +8,65 @@ btn.addEventListener('click', function (event) {
 
 
 document.getElementById("deposit-btn").addEventListener('click', function () {
-    let currentDeposit = document.getElementById("deposit-amount");
-    let depositBalance = parseInt(currentDeposit.value);
-    let Balance = document.getElementById('total-balance').innerText;
-    let integerBalance = parseInt(Balance.replace(/\$|,/g, ''));
-    TotalBalance = depositBalance + integerBalance;
-    document.getElementById('total-balance').innerText = '$' + TotalBalance;
-    let totalDeposit = document.getElementById("deposit-balance").innerText.replace(/\$|,/g, '');
-    integerDeposit = parseInt(totalDeposit) + depositBalance;
-    document.getElementById("deposit-balance").innerText = '$' + integerDeposit;
+    // let currentDeposit = document.getElementById("deposit-amount");
+    let currentDeposit = getInputNumber("deposit-amount");
+    setSpanText("deposit-balance", currentDeposit);
+    // let Balance = document.getElementById('total-balance').innerText;
+    // let integerBalance = parseInt(Balance);
+    // TotalBalance = depositBalance + integerBalance;
+    // document.getElementById('total-balance').innerText = TotalBalance;
+    // let totalDeposit = document.getElementById("deposit-balance").innerText;
+    // integerDeposit = parseInt(totalDeposit) + depositBalance;
+    // document.getElementById("deposit-balance").innerText = integerDeposit;
     currentDeposit.value = '';
 })
 
+function getInputNumber(id) {
+    amount = document.getElementById(id).value;
+    document.getElementById(id).value = '';
+    return parseInt(amount)
+
+}
+
+
+function getIntegerNumber(id) {
+    amount = document.getElementById(id).innerText;
+    return parseInt(amount)
+}
+
+function setSpanText(id, amount) {
+    let Balance = getIntegerNumber("total-balance");
+    if (amount < 0 && (-1 * amount) > Balance) {
+
+    } else {
+
+        TotalBalance = Balance + amount;
+        document.getElementById('total-balance').innerText = TotalBalance;
+        integerDeposit = getIntegerNumber(id) + Math.abs(amount);
+        document.getElementById(id).innerText = integerDeposit;
+
+
+    }
+
+
+}
 
 
 document.getElementById("withdraw-btn").addEventListener('click', function () {
-    let currentWithdraw = document.getElementById("withdraw-amount");
-    withdrawBalance = parseInt(currentWithdraw.value);
-    let Balance = document.getElementById('total-balance').innerText;
-    let integerBalance = parseInt(Balance.replace(/\$|,/g, ''));
-    let totalWithdraw = document.getElementById('withdraw-balance').innerText;
-    let integerWithdraw = parseInt(totalWithdraw.replace(/\$|,/g, ''));
-    if (integerBalance > withdrawBalance) {
-        totalBalance = integerBalance - withdrawBalance;
-        totalWithdraw = integerWithdraw + withdrawBalance;
-        document.getElementById('total-balance').innerText = '$' + totalBalance;
-        document.getElementById('withdraw-balance').innerText = '$' + totalWithdraw;
-        console.log(totalBalance);
-    }
+    // let currentWithdraw = document.getElementById("withdraw-amount");
+    currentWithdraw = getInputNumber("withdraw-amount")
+    setSpanText("withdraw-balance", -1 * currentWithdraw);
+    // let Balance = document.getElementById('total-balance').innerText;
+    // let integerBalance = parseInt(Balance);
+    // let totalWithdraw = document.getElementById('withdraw-balance').innerText;
+    // let integerWithdraw = parseInt(totalWithdraw);
+    // if (integerBalance > withdrawBalance) {
+    //     totalBalance = integerBalance - withdrawBalance;
+    //     totalWithdraw = integerWithdraw + withdrawBalance;
+    //     document.getElementById('total-balance').innerText = totalBalance;
+    //     document.getElementById('withdraw-balance').innerText = totalWithdraw;
+    //     console.log(totalBalance);
+    // }
     currentWithdraw.value = '';
 
 })
